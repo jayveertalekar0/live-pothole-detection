@@ -166,29 +166,6 @@ An end-to-end AI-powered road intelligence system that detects, segments, geoloc
 
 ---
 
-## 📷 Screenshots
-
-Add your screenshots inside an `assets/` folder.
-
-```md
-## Dashboard
-![Dashboard](assets/dashboard.png)
-
-## Detection Results
-![Detection](assets/detection.png)
-
-## Interactive Map
-![Map](assets/map.png)
-
-## Analytics Dashboard
-![Analytics](assets/analytics.png)
-
-## Live Road Monitor
-![Live Monitor](assets/live-monitor.png)
-```
-
----
-
 ## 🔮 Future Enhancements
 
 * Android & iOS Application
