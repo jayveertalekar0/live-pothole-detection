@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models   # mount model weights
+    environment:
+      - DEVICE=cpu   # change to "cuda" if GPU available
