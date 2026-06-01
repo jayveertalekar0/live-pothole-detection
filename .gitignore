@@ -33,8 +33,10 @@ backend/datasets/
 backend/pothole_seg_full.zip
 
 # Model weights – excluded except the gitkeep marker
+# Ignore everything in models/ except .gitkeep and the trained model file
 backend/models/*
 !backend/models/.gitkeep
+!backend/models/pothole_full_best.pt
 
 # Unnecessary local files
 backend/yolo11n-seg.pt
