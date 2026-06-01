@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes.detection import router as detection_router
@@ -9,6 +10,10 @@ from app.api.routes.websocket import router as websocket_router
 from app.core.config import settings
 from app.db.database import init_db
 
+# Read allowed origins from environment variable
+origins_str = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000")
+allow_origins = [origin.strip() for origin in origins_str.split(",")]
+
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.VERSION,
@@ -16,10 +21,10 @@ app = FastAPI(
     redoc_url=None
 )
 
-# CORS
+# CORS – uses the dynamic list from the environment variable
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=allow_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
