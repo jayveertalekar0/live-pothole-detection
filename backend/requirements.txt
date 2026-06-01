@@ -7,4 +7,5 @@ pydantic-settings
 numpy
 Pillow
 torch>=2.0.0
+motor
 httpx
