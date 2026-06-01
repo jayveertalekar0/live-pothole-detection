@@ -1,74 +1,55 @@
 # 🚧 AI-Powered Pothole Detection & Road Intelligence Platform
 
-An end-to-end computer vision platform that detects, analyzes, and geolocates potholes from images, videos, dashcams, and live camera feeds. The system combines real-time AI detection, geospatial analytics, interactive mapping, and road-health monitoring to help citizens and authorities identify and manage road infrastructure issues efficiently.
+An end-to-end AI-powered road intelligence system that detects, segments, geolocates, and analyzes potholes from images, videos, dashcams, and live camera feeds. The platform combines computer vision, geospatial analytics, and real-time data streaming to support smarter road maintenance and safer transportation.
 
-## 🌟 Key Features
-
-### 🔍 Intelligent Pothole Detection
-
-* Real-time pothole detection using YOLOv11 Segmentation.
-* Instance segmentation masks for precise pothole boundaries.
-* Confidence scoring and severity classification.
-* Relative depth estimation using MiDaS.
-
-### 🎥 Multi-Source Processing
-
-* Image upload and analysis.
-* Dashcam video processing with tracking.
-* Live camera monitoring through mobile devices.
-* Continuous road surveillance support.
-
-### 📍 Geospatial Intelligence
-
-* GPS-based pothole reporting.
-* Interactive map visualization.
-* Marker clustering and heatmaps.
-* Route risk analysis.
-* Road health scoring and GeoJSON overlays.
-
-### 📊 Analytics Dashboard
-
-* Severity distribution analysis.
-* Daily and monthly detection trends.
-* Repair progress tracking.
-* Road condition insights.
-* Real-time reporting statistics.
-
-### ⚡ Real-Time System
-
-* WebSocket-powered live updates.
-* Instant pothole synchronization across clients.
-* Automatic duplicate report detection.
-* Live road monitoring and alerts.
+<p align="center">
+  <a href="https://live-pothole-detection.vercel.app">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Visit_Dashboard-success?style=for-the-badge" />
+  </a>
+  <a href="https://pothole-backend-b213.onrender.com/docs">
+    <img src="https://img.shields.io/badge/📚_Swagger_API-Documentation-blue?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/jayveertalekar0/live-pothole-detection">
+    <img src="https://img.shields.io/badge/💻_Source_Code-GitHub-black?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
-## 🏗 System Overview
+## 🌐 Live Deployment
 
-The platform follows a modern microservice-inspired architecture:
-
-Frontend (Next.js)
-↓
-REST API + WebSocket
-↓
-FastAPI Backend
-↓
-AI Inference Layer
-(YOLOv11-Seg + MiDaS)
-↓
-MongoDB Atlas
-(Geospatial Database)
+| Service                 | Link                                                      |
+| ----------------------- | --------------------------------------------------------- |
+| 🚀 Frontend Dashboard   | https://live-pothole-detection.vercel.app                 |
+| 📚 Swagger API Docs     | https://pothole-backend-b213.onrender.com/docs            |
+| ❤️ Backend Health Check | https://pothole-backend-b213.onrender.com/health          |
+| 💻 GitHub Repository    | https://github.com/jayveertalekar0/live-pothole-detection |
 
 ---
 
-## 🛠 Technology Stack
+## 🏆 Highlights
+
+* 🤖 AI-Powered Pothole Detection (YOLOv11-Seg)
+* 📍 GPS-Based Geolocation & Mapping
+* 🗺️ Interactive Map with Clustering & Heatmaps
+* 📊 Real-Time Analytics Dashboard
+* ⚡ WebSocket Live Updates
+* 🎥 Image, Video & Live Camera Processing
+* 🛣️ Route Risk Analysis
+* 🔄 Duplicate Report Detection
+* 🐳 Dockerized Deployment
+* ☁️ Hosted on Render & Vercel
+
+---
+
+## 🛠️ Tech Stack
 
 ### Artificial Intelligence
 
 * YOLOv11 Segmentation
-* PyTorch
-* OpenCV
 * MiDaS Depth Estimation
+* OpenCV
+* PyTorch
 
 ### Backend
 
@@ -79,7 +60,7 @@ MongoDB Atlas
 
 ### Frontend
 
-* Next.js
+* Next.js 16
 * React
 * Tailwind CSS
 * Leaflet
@@ -88,57 +69,143 @@ MongoDB Atlas
 ### Database
 
 * MongoDB Atlas
-* Geospatial Indexing (2dsphere)
+* Geospatial Indexing (`2dsphere`)
 
-### DevOps & Deployment
+### DevOps
 
 * Docker
+* Git
 * GitHub
 * Render
 * Vercel
 
 ---
 
-## 🎯 Real-World Impact
+## 📸 Features
 
-Poor road conditions contribute to vehicle damage, traffic congestion, and safety risks. This platform enables:
+### 🔍 Intelligent Pothole Detection
 
-* Faster pothole identification.
-* Community-driven reporting.
-* Data-driven road maintenance.
-* Infrastructure monitoring.
-* Smart-city integration.
+* Detect potholes from images and videos
+* Instance segmentation masks
+* Confidence scoring
+* Severity estimation
+* Relative depth estimation
+
+### 🎥 Multi-Source Processing
+
+* Image Upload Detection
+* Dashcam Video Analysis
+* Live Camera Monitoring
+* Real-Time Inference
+
+### 📍 Geospatial Intelligence
+
+* GPS-enabled pothole reporting
+* Interactive road map
+* Marker clustering
+* Heatmaps
+* Route risk analysis
+* Road health visualization
+
+### 📊 Analytics Dashboard
+
+* Severity distribution
+* Daily detection trends
+* Repair progress monitoring
+* Road condition insights
+
+### ⚡ Real-Time System
+
+* WebSocket-powered updates
+* Live map synchronization
+* Instant analytics refresh
+* Duplicate report prevention
 
 ---
 
-## 🚀 Future Enhancements
+## 🏗️ System Architecture
 
-* Mobile application (Android/iOS).
-* Government dashboard integration.
-* Automated repair recommendation system.
-* Predictive road deterioration analytics.
-* Drone-based road inspection.
-* Edge AI deployment.
-* Multi-class road defect detection (cracks, patches, potholes, debris).
+```text
+┌──────────────────────┐
+│      Next.js UI      │
+└──────────┬───────────┘
+           │
+     REST API + WS
+           │
+┌──────────▼───────────┐
+│      FastAPI         │
+├──────────────────────┤
+│ Detection Service    │
+│ Video Processing     │
+│ Analytics Service    │
+│ Map Service          │
+│ WebSocket Service    │
+└──────────┬───────────┘
+           │
+ ┌─────────▼─────────┐
+ │ YOLOv11 + MiDaS   │
+ └─────────┬─────────┘
+           │
+ ┌─────────▼─────────┐
+ │ MongoDB Atlas     │
+ └───────────────────┘
+```
 
 ---
 
-## 📈 Project Highlights
+## 📊 Model Information
 
-✔ Full-Stack AI Application
-
-✔ Computer Vision + Geospatial Analytics
-
-✔ Real-Time Data Streaming
-
-✔ Interactive Mapping System
-
-✔ Dockerized Deployment
-
-✔ Cloud-Ready Architecture
-
-✔ Production-Oriented Design
+| Component        | Details              |
+| ---------------- | -------------------- |
+| Detection Model  | YOLOv11-Seg Nano     |
+| Framework        | PyTorch              |
+| Dataset Size     | ~2000 Images         |
+| Task             | Pothole Segmentation |
+| Depth Estimation | MiDaS Small          |
+| Deployment       | CPU Optimized        |
 
 ---
 
-Developed by **Jayveer Talekar**
+## 📷 Screenshots
+
+Add your screenshots inside an `assets/` folder.
+
+```md
+## Dashboard
+![Dashboard](assets/dashboard.png)
+
+## Detection Results
+![Detection](assets/detection.png)
+
+## Interactive Map
+![Map](assets/map.png)
+
+## Analytics Dashboard
+![Analytics](assets/analytics.png)
+
+## Live Road Monitor
+![Live Monitor](assets/live-monitor.png)
+```
+
+---
+
+## 🔮 Future Enhancements
+
+* Android & iOS Application
+* Drone-Based Road Inspection
+* Government Dashboard Integration
+* Predictive Road Damage Analytics
+* Edge AI Deployment
+* Multi-Class Road Defect Detection
+* Smart City Infrastructure Integration
+* Repair Recommendation System
+
+---
+
+## 👨‍💻 Developer
+
+**Jayveer Talekar**
+
+Full Stack Developer • Backend Engineer • AI Engineer
+
+⭐ If you found this project useful, consider giving it a star on GitHub.
