@@ -1,10 +1,17 @@
+import os
 import time
 import cv2
 import numpy as np
 from ultralytics import YOLO
 from app.core.config import settings
 from app.core.logging import logger
-from app.services.depth_estimator import depth_estimator
+
+# Conditionally load depth estimation
+_DISABLE_DEPTH = os.getenv("DISABLE_DEPTH", "false").lower() == "true"
+if not _DISABLE_DEPTH:
+    from app.services.depth_estimator import depth_estimator
+else:
+    depth_estimator = None
 
 class PotholeDetector:
     def __init__(self):
@@ -55,6 +62,10 @@ class PotholeDetector:
         return detections, annotated, elapsed
 
     def detect_with_depth(self, image: np.ndarray, conf: float = None) -> tuple[list, np.ndarray, float]:
+        # If depth is disabled, fall back to basic detection
+        if depth_estimator is None:
+            return self.detect(image, conf=conf)
+
         start = time.time()
 
         basic_dets, annotated, _ = self.detect(image, conf=conf)
