@@ -22,8 +22,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# The model file is already in the repo, no need to download it.
-
 EXPOSE 8000
 
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT}"]
